@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Fira Code', monospace;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  background-color: #ae0e0e;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #444;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+/* LEFT PANEL - Code Editor */
+.left {
+  flex: 1;
+  background-color: #000000;
+  border-radius: 0.7rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* ✅ Crucial for flex scrolling */
+}
+
+.code {
+  flex: 1;           /* Fill remaining height */
+  overflow: auto;    /* Scroll if content overflows */
+  width: 100%;
+  border-radius: 0.7rem;
+  background-color: #0c0c0c;
+  font-size: 14px;
+  padding: 0.5rem;
+}
+
+.code pre,
+.code pre code {
+  height: auto;      /* Let parent handle height */
+  width: 100%;
+  margin: 0;
+  border-radius: 0.7rem;
+}
+
+/* REVIEW BUTTON */
+.review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgb(219, 219, 255);
+  color: #000000;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.review:hover {
+  background-color: rgb(200, 200, 255);
+}
+
+/* RIGHT PANEL - AI Response */
+.right {
+  flex: 1;
+  background-color: #343434;
+  border-radius: 0.7rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;      
+  line-height: 1.6;     
+  overflow-y: auto;     
+  max-height: 100%;
+  color: #ffffff;
+}
+
+/* Markdown headings for AI response */
+.right h1 {
+  font-size: 1.4rem;
+}
+
+.right h2 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.right h3 {
+  font-size: 1.05rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.right p,
+.right li,
+.right code {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Code blocks in AI response */
+.right code {
+  background-color: #1e1e1e;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+  display: block;
+  overflow-x: auto;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
